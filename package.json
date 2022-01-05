@@ -4,10 +4,10 @@
   "author": "Gil Balsiger",
   "license": "MIT",
   "private": true,
-  "main": "./dist/electron.bundle.js",
+  "main": "dist/electron.bundle.js",
   "scripts": {
     "start": "webpack serve -c ./configs/renderer.dev.ts",
-    "electron": "cross-env NODE_ENV=development electron -r ./scripts/babel-register ./src/main.ts",
+    "electron": "electron -r ./scripts/babel-register ./src/main.ts",
     "build": "concurrently \"yarn:build:*\"",
     "build:renderer": "cross-env NODE_ENV=production webpack -c ./configs/renderer.prod.ts",
     "build:main": "cross-env NODE_ENV=production webpack -c ./configs/main.prod.ts",
@@ -20,6 +20,7 @@
     "files": [
       "dist",
       "package.json",
+      "res",
       "!node_modules",
       {
         "from": "src",
@@ -55,11 +56,8 @@
     "core-js": "^3.20.2",
     "cross-env": "^7.0.3",
     "css-loader": "^6.5.1",
-    "del": "^6.0.0",
     "electron": "^16",
     "electron-builder": "^22.14.5",
-    "gulp": "^4.0.2",
-    "gulp-cli": "^2.3.0",
     "react-refresh": "^0.11.0",
     "rimraf": "^3.0.2",
     "style-loader": "^3.3.1",

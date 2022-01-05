@@ -7,7 +7,7 @@ Another boilerplate for Electron with React and Typescript but simpler and more 
 Clone the template and move into the directory :
 
 ```
-git clone https://github.com/balsigergil/electron-react-typescript-boilerplate.git <your-project>
+git clone --depth=1 https://github.com/balsigergil/electron-react-typescript-boilerplate.git <your-project>
 ```
 
 ```
@@ -27,10 +27,10 @@ yarn start
 <your-project>
 ┝ configs:  webpack configurations
 ┝ dist:     webpack output directory
-┝ out:      electron-builder output directory
-┝ res:      resources for electron-builder (e.g icons)
+┝ out:      electron-builder output directory for production builds
+┝ res:      resources for Electron and electron-builder (e.g. icons)
 ┝ scripts:  babel script
-└ src:      you probably know it already :)
+└ src:      you already know what that is :)
 ```
 
 ## Build for production
@@ -38,5 +38,13 @@ yarn start
 Build for production using [electron-builder](https://www.electron.build/) with :
 
 ```
-yarn dist
+yarn prod
+```
+
+## Clean generated directories
+
+Remove the `out` and `dist` directories.
+
+```
+yarn clean
 ```

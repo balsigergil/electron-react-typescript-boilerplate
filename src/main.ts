@@ -1,7 +1,7 @@
 import { app, BrowserWindow } from "electron";
 import * as path from "path";
 
-const isDevelopment = process.env.NODE_ENV === "development";
+const isProduction = process.env.NODE_ENV === "production";
 
 function createWindow() {
   const win = new BrowserWindow({
@@ -11,11 +11,11 @@ function createWindow() {
     icon: path.resolve(path.dirname(__dirname), "res", "icon.ico"),
   });
 
-  if (isDevelopment) {
+  if (isProduction) {
+    win.loadFile("index.prod.html");
+  } else {
     win.webContents.openDevTools();
     win.loadURL("http://localhost:3000/index.dev.html");
-  } else {
-    win.loadFile("index.prod.html");
   }
 }
 
