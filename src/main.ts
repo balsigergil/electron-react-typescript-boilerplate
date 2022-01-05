@@ -13,7 +13,7 @@ function createWindow() {
 
   if (isDevelopment) {
     win.webContents.openDevTools();
-    win.loadFile("index.dev.html");
+    win.loadURL("http://localhost:3000/index.dev.html");
   } else {
     win.loadFile("index.prod.html");
   }

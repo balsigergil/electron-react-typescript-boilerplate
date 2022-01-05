@@ -5,11 +5,10 @@ const isDevelopment = process.env.NODE_ENV !== "production";
 
 const config: webpack.Configuration = {
   entry: path.join(path.dirname(__dirname), "src", "renderer.tsx"),
-  target: "web",
   module: {
     rules: [
       {
-        test: /\.tsx?$/i,
+        test: /\.(j|t)sx?$/i,
         use: [
           {
             loader: require.resolve("babel-loader"),

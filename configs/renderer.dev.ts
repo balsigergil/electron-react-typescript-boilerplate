@@ -4,6 +4,7 @@ import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin";
 
 import common from "./renderer.common";
 import WebpackDevServer from "webpack-dev-server";
+import path from "path";
 
 declare module "webpack" {
   interface Configuration {
@@ -16,10 +17,11 @@ const config = merge(common, {
   devtool: "eval-cheap-source-map",
   devServer: {
     port: 3000,
-    hot: true,
-    noInfo: false,
-    stats: "errors-only",
-    before() {
+    static: {
+      directory: path.join(path.dirname(__dirname), "src"),
+    },
+    onBeforeSetupMiddleware() {
+      console.log("Starting Main Process...");
       spawn("yarn", ["run", "electron"], {
         shell: true,
         env: process.env,
