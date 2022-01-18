@@ -20,7 +20,7 @@ const config = merge(common, {
     static: {
       directory: path.join(path.dirname(__dirname), "src"),
     },
-    onBeforeSetupMiddleware() {
+    setupMiddlewares: (middlewares, _) => {
       console.log("Starting Main Process...");
       spawn("yarn", ["run", "electron"], {
         shell: true,
@@ -29,6 +29,7 @@ const config = merge(common, {
       })
         .on("close", (code) => process.exit(code ?? 1))
         .on("error", (spawnError) => console.error(spawnError));
+      return middlewares;
     },
   },
   output: {
