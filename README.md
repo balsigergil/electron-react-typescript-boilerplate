@@ -38,7 +38,7 @@ yarn start
 Build for production using [electron-builder](https://www.electron.build/) with :
 
 ```
-yarn prod
+yarn dist
 ```
 
 ## Clean generated directories
