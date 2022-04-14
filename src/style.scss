@@ -1,0 +1,36 @@
+$backgroundColor: rgb(235, 235, 235);
+
+body {
+  background-color: $backgroundColor;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.wrapper {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px 2px rgba(black, 0.12);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 20px;
+
+  img {
+    max-width: 128px;
+  }
+
+  h1 {
+    text-align: center;
+    font-weight: 400;
+  }
+}

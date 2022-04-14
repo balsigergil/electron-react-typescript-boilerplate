@@ -14,7 +14,6 @@ function createWindow() {
   if (isProduction) {
     win.loadFile("index.prod.html");
   } else {
-    win.webContents.openDevTools();
     win.loadURL("http://localhost:3000/index.dev.html");
   }
 }
