@@ -12,7 +12,7 @@ function createWindow() {
   });
 
   if (isProduction) {
-    win.loadFile("index.prod.html");
+    win.loadFile(path.resolve(__dirname, "index.prod.html"));
   } else {
     win.loadURL("http://localhost:3000/index.dev.html");
   }

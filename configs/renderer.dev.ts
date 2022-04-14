@@ -17,9 +17,17 @@ const config = merge(common, {
   devtool: "eval-cheap-source-map",
   devServer: {
     port: 3000,
-    static: {
-      directory: path.join(path.dirname(__dirname), "src"),
+    compress: true,
+    hot: true,
+    allowedHosts: "all",
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "*",
+      "Access-Control-Allow-Headers": "*",
     },
+    // static: {
+    //   directory: path.join(path.dirname(__dirname), "src"),
+    // },
     setupMiddlewares: (middlewares, _) => {
       console.log("Starting Main Process...");
       spawn("yarn", ["run", "electron"], {

@@ -1,14 +1,20 @@
 {
   "compilerOptions": {
     "module": "CommonJS",
-    "target": "ESNext",
-    "moduleResolution": "Node",
-    "sourceMap": true,
-    "jsx": "preserve",
-    "allowJs": false,
+    "target": "ES5",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "allowJs": true,
+    "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "noImplicitAny": true,
-    "strict": true
-  }
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx"
+  },
+  "include": ["src"]
 }

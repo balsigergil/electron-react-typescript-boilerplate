@@ -24,8 +24,12 @@
       "res",
       "!node_modules",
       {
-        "from": "src",
-        "filter": "index.prod.html"
+        "from": "public",
+        "to": "dist",
+        "filter": [
+          "**/*",
+          "!index.dev.html"
+        ]
       }
     ],
     "directories": {
@@ -35,8 +39,8 @@
     "win": {
       "target": [
         "nsis",
-        "zip",
         "portable",
+        "zip",
         "7z"
       ],
       "icon": "res/logo.ico"
@@ -52,7 +56,7 @@
     "@babel/preset-typescript": "^7.16.7",
     "@babel/register": "^7.17.7",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.5",
-    "@types/node": "^17.0.23",
+    "@types/node": "^17.0.24",
     "@types/react": "^17",
     "@types/react-dom": "^17",
     "@types/webpack": "^5.28.0",

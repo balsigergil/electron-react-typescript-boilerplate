@@ -8,7 +8,7 @@ const config: webpack.Configuration = {
   module: {
     rules: [
       {
-        test: /\.(j|t)sx?$/i,
+        test: /\.[jt]sx?$/i,
         use: [
           {
             loader: require.resolve("babel-loader"),
