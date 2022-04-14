@@ -1,5 +1,6 @@
 {
   "name": "electron-react-typescript-boilerplate",
+  "description": "Electron React Typecript boilerplate for your next app",
   "version": "0.0.1",
   "author": "Gil Balsiger",
   "license": "MIT",
@@ -31,8 +32,17 @@
       "output": "out",
       "buildResources": "res"
     },
+    "win": {
+      "target": [
+        "nsis",
+        "zip",
+        "portable",
+        "7z"
+      ],
+      "icon": "res/logo_256.ico"
+    },
     "linux": {
-      "icon": "256x256.png"
+      "icon": "res/logo_256.png"
     }
   },
   "devDependencies": {
@@ -50,7 +60,6 @@
     "@types/webpack": "^5.28.0",
     "babel-loader": "^8.2.4",
     "concurrently": "^7.1.0",
-    "core-js": "^3.21.1",
     "cross-env": "^7.0.3",
     "css-loader": "^6.7.1",
     "electron": "^18",

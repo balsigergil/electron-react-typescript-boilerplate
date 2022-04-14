@@ -8,7 +8,7 @@ function createWindow() {
     width: 960,
     height: 540,
     center: true,
-    icon: path.resolve(path.dirname(__dirname), "res", "icon.ico"),
+    icon: path.resolve(path.dirname(__dirname), "res", "logo_64.png"),
   });
 
   if (isProduction) {
