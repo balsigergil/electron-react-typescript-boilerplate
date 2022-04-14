@@ -39,7 +39,7 @@
         "portable",
         "7z"
       ],
-      "icon": "res/logo_256.ico"
+      "icon": "res/logo.ico"
     },
     "linux": {
       "icon": "res/logo_256.png"
