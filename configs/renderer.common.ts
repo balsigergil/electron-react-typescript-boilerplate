@@ -5,6 +5,7 @@ const isDevelopment = process.env.NODE_ENV !== "production";
 
 const config: webpack.Configuration = {
   entry: path.join(path.dirname(__dirname), "src", "renderer.tsx"),
+  target: ["electron-renderer", "web"],
   module: {
     rules: [
       {
@@ -21,14 +22,7 @@ const config: webpack.Configuration = {
         ],
         exclude: /node_modules/,
       },
-      {
-        test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
-      },
-      {
-        test: /\.s[ac]ss$/i,
-        use: ["style-loader", "css-loader", "sass-loader"],
-      },
+
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: "asset/resource",

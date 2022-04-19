@@ -15,6 +15,18 @@ declare module "webpack" {
 const config = merge(common, {
   mode: "development",
   devtool: "eval-cheap-source-map",
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
+      },
+      {
+        test: /\.s[ac]ss$/i,
+        use: ["style-loader", "css-loader", "sass-loader"],
+      },
+    ],
+  },
   devServer: {
     port: 3000,
     compress: true,
@@ -25,9 +37,6 @@ const config = merge(common, {
       "Access-Control-Allow-Methods": "*",
       "Access-Control-Allow-Headers": "*",
     },
-    // static: {
-    //   directory: path.join(path.dirname(__dirname), "src"),
-    // },
     setupMiddlewares: (middlewares, _) => {
       console.log("Starting Main Process...");
       spawn("yarn", ["run", "electron"], {
