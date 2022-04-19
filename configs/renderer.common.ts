@@ -1,9 +1,15 @@
 import * as path from "path";
-import * as webpack from "webpack";
+import { Configuration, WebpackPluginInstance } from "webpack";
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
 
 const isDevelopment = process.env.NODE_ENV !== "production";
 
-const config: webpack.Configuration = {
+let plugins: WebpackPluginInstance[] = [];
+if (!isDevelopment) {
+  plugins = [new MiniCssExtractPlugin()];
+}
+
+const config: Configuration = {
   entry: path.join(path.dirname(__dirname), "src", "renderer.tsx"),
   target: ["electron-renderer", "web"],
   module: {
@@ -22,7 +28,15 @@ const config: webpack.Configuration = {
         ],
         exclude: /node_modules/,
       },
-
+      {
+        test: /\.(sa|sc|c)ss$/,
+        use: [
+          isDevelopment ? "style-loader" : MiniCssExtractPlugin.loader,
+          "css-loader",
+          "postcss-loader",
+          "sass-loader",
+        ],
+      },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: "asset/resource",
@@ -33,6 +47,7 @@ const config: webpack.Configuration = {
       },
     ],
   },
+  plugins,
   resolve: {
     extensions: [".js", ".jsx", ".ts", ".tsx"],
   },

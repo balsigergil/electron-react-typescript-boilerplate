@@ -9,6 +9,7 @@ function createWindow() {
     height: 540,
     center: true,
     icon: path.resolve(path.dirname(__dirname), "res", "logo.ico"),
+    show: false,
   });
 
   if (isProduction) {
@@ -16,6 +17,10 @@ function createWindow() {
   } else {
     win.loadURL("http://localhost:3000/index.dev.html");
   }
+
+  win.once("ready-to-show", () => {
+    win.show();
+  });
 }
 
 app.whenReady().then(() => {

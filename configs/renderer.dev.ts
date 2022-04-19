@@ -4,7 +4,6 @@ import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin";
 
 import common from "./renderer.common";
 import WebpackDevServer from "webpack-dev-server";
-import path from "path";
 
 declare module "webpack" {
   interface Configuration {
@@ -15,17 +14,8 @@ declare module "webpack" {
 const config = merge(common, {
   mode: "development",
   devtool: "eval-cheap-source-map",
-  module: {
-    rules: [
-      {
-        test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
-      },
-      {
-        test: /\.s[ac]ss$/i,
-        use: ["style-loader", "css-loader", "sass-loader"],
-      },
-    ],
+  output: {
+    filename: "[name].bundle.js",
   },
   devServer: {
     port: 3000,
@@ -48,9 +38,6 @@ const config = merge(common, {
         .on("error", (spawnError) => console.error(spawnError));
       return middlewares;
     },
-  },
-  output: {
-    filename: "[name].bundle.js",
   },
   plugins: [new ReactRefreshWebpackPlugin()],
 });
