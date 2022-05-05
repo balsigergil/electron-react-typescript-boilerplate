@@ -6,7 +6,7 @@ const isDevelopment = process.env.NODE_ENV !== "production";
 
 let plugins: WebpackPluginInstance[] = [];
 if (!isDevelopment) {
-  plugins = [new MiniCssExtractPlugin()];
+  plugins.push(new MiniCssExtractPlugin());
 }
 
 const config: Configuration = {
@@ -16,6 +16,7 @@ const config: Configuration = {
     rules: [
       {
         test: /\.[jt]sx?$/i,
+        exclude: /node_modules/,
         use: [
           {
             loader: require.resolve("babel-loader"),
@@ -26,7 +27,6 @@ const config: Configuration = {
             },
           },
         ],
-        exclude: /node_modules/,
       },
       {
         test: /\.(sa|sc|c)ss$/,
